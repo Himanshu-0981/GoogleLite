@@ -1,12 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 import { Image } from "../components/Image";
 import googleLogo from "../assets/logo-google.png";
 import { SearchBar } from "../components/SearchBar";
 import { Button } from "../components/Button";
 import { Footer } from "../components/Footer";
+import { countryLanguages } from "../language/language";
+import { Context } from "../context/Context";
 
 export default function Home() {
+  const { query, setQuery } = useContext(Context);
+  const [languages] = useState(countryLanguages);
+
+  const handleSearchQuery = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const handleCloseBtn = () => {
+    setQuery("");
+  };
+
   return (
     <>
       <div className="flex flex-col justify-center items-center h-100vh">
@@ -18,6 +33,9 @@ export default function Home() {
           styleClass={
             "rounded-full w-[37rem] pb-3 pt-3 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0"
           }
+          onChangeAction={() => handleSearchQuery(event)}
+          value={query}
+          onClickAction={handleCloseBtn}
         />
         <div className="flex space-x-3 space-y-8">
           <div></div>
@@ -35,19 +53,10 @@ export default function Home() {
           />
         </div>
         <div className="flex items-center text-[#1a0dab]  space-x-2  text-xs mt-8">
-          <div>
-            <p className="text-black text-[13px] ">Google offered in : </p>
-          </div>
-          <Link>हिन्दी</Link>
-          <Link>বাংলা</Link>
-          <Link>తెలుగు</Link>
-          <Link>मराठी</Link>
-          <Link>தமிழ்</Link>
-          <Link>தமிழ்</Link>
-          <Link>ગુજરાતી</Link>
-          <Link>ಕನ್ನಡ</Link>
-          <Link>മലയാളം</Link>
-          <Link>ਪੰਜਾਬੀ</Link>
+          <p className="text-black text-[13px] ">Google offered in :</p>
+          {languages.map((language, index) => (
+            <Link key={index}>{language}</Link>
+          ))}
         </div>
       </div>
       <footer className=" fixed bottom-0">

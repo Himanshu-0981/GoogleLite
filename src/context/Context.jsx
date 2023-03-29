@@ -8,6 +8,7 @@ export const Context = createContext();
 export const AppContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
   const [randomUser, setRandomUser] = useState("");
 
   const fetchResult = () => {
@@ -31,6 +32,8 @@ export const AppContext = ({ children }) => {
   return (
     <Context.Provider
       value={{
+        query,
+        setQuery,
         randomUser,
       }}
     >
