@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 import { Image } from "../components/Image";
 import googleLogo from "../assets/logo-google.png";
 import { SearchBar } from "../components/SearchBar";
 import { Button } from "../components/Button";
-import { Link } from "react-router-dom";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col justify-center items-center h-100vh">
         <Image
           image={googleLogo}
           styleClass={"h-[90px] mt-3 text-center mb-6"}
@@ -22,13 +24,13 @@ export default function Home() {
           <Button
             title={"Google Search"}
             styleClass={
-              "pt-2 pb-2 pr-4 pl-4 bg-[#F0F1F2] text-black font-light rounded text-white text-sm"
+              "pt-2 pb-2 pr-4 pl-4 bg-[#F0F1F2] text-black font-light rounded  text-sm"
             }
           />
           <Button
             title={"I'm Feeling Lucky"}
             styleClass={
-              "pt-2 pb-2 pr-4 pl-4 bg-[#F0F1F2] text-black font-light rounded text-white text-sm"
+              "pt-2 pb-2 pr-4 pl-4 bg-[#F0F1F2] text-black font-light rounded  text-sm"
             }
           />
         </div>
@@ -48,6 +50,9 @@ export default function Home() {
           <Link>ਪੰਜਾਬੀ</Link>
         </div>
       </div>
+      <footer className=" fixed bottom-0">
+        <Footer />
+      </footer>
     </>
   );
 }
