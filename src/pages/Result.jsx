@@ -5,10 +5,10 @@ import { FiSettings } from "react-icons/fi";
 
 import { Context } from "../context/Context";
 import { fetchData } from "../utils/api";
-import NavBarMenu from "../components/HeaderMenu";
+import HeaderMenu from "../components/HeaderMenu";
 import { Image } from "../components/Image";
 import googleLogo from "../assets/logo-google.png";
-import { Navbar } from "../components/Header";
+import { Header } from "../components/Header";
 import { SearchBar } from "../components/SearchBar";
 import { Button } from "../components/Button";
 import { colors } from "../colors/colors";
@@ -32,11 +32,11 @@ const Result = () => {
         </div>
 
         <div className={`flex items-center space-x-5`}>
-          <NavBarMenu
+          <HeaderMenu
             icon={<FiSettings />}
             styleClass={"text-2xl text-[#72767a] "}
           />
-          <NavBarMenu
+          <HeaderMenu
             icon={<CgMenuGridO />}
             styleClass={"text-2xl text-[#72767a] "}
           />

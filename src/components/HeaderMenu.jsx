@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NavBarMenu = ({ title, icon, icon2, address, styleClass }) => {
+const HeaderMenu = ({ title, icon, icon2, address, styleClass }) => {
   return (
     <>
       <nav>
@@ -12,4 +12,4 @@ const NavBarMenu = ({ title, icon, icon2, address, styleClass }) => {
   );
 };
 
-export default NavBarMenu;
+export default HeaderMenu;

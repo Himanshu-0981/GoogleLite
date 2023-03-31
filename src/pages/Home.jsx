@@ -8,7 +8,7 @@ import { Button } from "../components/Button";
 import { Footer } from "../components/Footer";
 import { countryLanguages } from "../language/language";
 import { Context } from "../context/Context";
-import { Navbar } from "../components/Header";
+import { Header } from "../components/Header";
 
 export default function Home() {
   const { query, setQuery } = useContext(Context);
@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="flex flex-col justify-center items-center h-100vh">
         <Image
           image={googleLogo}

@@ -3,18 +3,18 @@ import { CgMenuGridO } from "react-icons/cg";
 import { BsFillPersonFill } from "react-icons/bs";
 import { useContext } from "react";
 
-import NavBarMenu from "./HeaderMenu";
 import { Image } from "./Image";
 import { Button } from "./Button";
-import { NavbarText } from "./NavbarText";
+import { HeaderText } from "./HeaderText";
+import HeaderMenu from "./HeaderMenu";
 
-export const Navbar = () => {
+export const Header = () => {
   return (
     <>
       <nav className="flex justify-end items-center space-x-4 text-xs pt-3 pr-5 pl-5">
-        <NavbarText title1={"Gmail"} />
-        <NavbarText title1={"Images"} />
-        <NavBarMenu
+        <HeaderText title1={"Gmail"} />
+        <HeaderText title1={"Images"} />
+        <HeaderMenu
           icon={<CgMenuGridO />}
           styleClass={"text-2xl text-[#72767a] "}
         />
