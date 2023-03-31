@@ -1,9 +1,11 @@
 import React from "react";
 
-export const Button = ({ title, styleClass }) => {
+export const Button = ({ title, styleClass, onClickAction, onKeyUpAction }) => {
   return (
     <div>
-      <button className={styleClass}>{title}</button>
+      <button onClick={onClickAction} className={styleClass}>
+        {title}
+      </button>
     </div>
   );
 };

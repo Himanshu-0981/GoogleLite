@@ -1,17 +1,15 @@
 import axios from "axios";
 
-const URL = "https://google-search74.p.rapidapi.com/?query=";
+const URL = "https://g-search.p.rapidapi.co";
 
 const options = {
-  query: { q: "Computer" },
-  method: "GET",
   headers: {
-    "X-RapidAPI-Key": "af2c7c631cmsh45754f6e80f5b57p155206jsn677410b5b868",
-    "X-RapidAPI-Host": "google-search74.p.rapidapi.com",
+    "X-RapidAPI-Key": "665274a7dfmsh1109dbea5759a8ep11be6cjsn0f409d12ad71",
+    "X-RapidAPI-Host": "g-search.p.rapidapi.com",
   },
 };
 
-export const fetchData = async () => {
-  const { data } = await axios.get(`${URL}${options.query.q}`, options);
-  return data;
+export const fetchData = async (query) => {
+  const { data } = await axios.get(`${URL}/search?q=${query}`, options);
+  return await data;
 };

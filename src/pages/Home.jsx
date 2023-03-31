@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Image } from "../components/Image";
 import googleLogo from "../assets/logo-google.png";
@@ -13,6 +12,7 @@ import { Context } from "../context/Context";
 export default function Home() {
   const { query, setQuery } = useContext(Context);
   const [languages] = useState(countryLanguages);
+  const navigate = useNavigate();
 
   const handleSearchQuery = (event) => {
     setQuery(event.target.value);
@@ -20,6 +20,15 @@ export default function Home() {
 
   const handleCloseBtn = () => {
     setQuery("");
+  };
+
+  const searchQueryHandler = (event) => {
+    if (
+      (event.key === "Enter" || event.key === "searchBtn") &&
+      query.length > 0
+    ) {
+      navigate(`/result/${query}`);
+    }
   };
 
   return (
@@ -36,6 +45,7 @@ export default function Home() {
           onChangeAction={() => handleSearchQuery(event)}
           value={query}
           onClickAction={handleCloseBtn}
+          onKeyUpAction={searchQueryHandler}
         />
         <div className="flex space-x-3 space-y-8">
           <div></div>
@@ -44,6 +54,7 @@ export default function Home() {
             styleClass={
               "pt-2 pb-2 pr-4 pl-4 bg-[#F0F1F2] text-black font-light rounded  text-sm"
             }
+            onClickAction={() => searchQueryHandler("searchBtn")}
           />
           <Button
             title={"I'm Feeling Lucky"}

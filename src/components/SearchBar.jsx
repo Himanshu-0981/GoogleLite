@@ -2,7 +2,6 @@ import { IoMdSearch, IoMdClose } from "react-icons/io";
 
 import logoMic from "../assets/logo-mic.svg";
 import logoCamera from "../assets/logo-camera.svg";
-import { useState } from "react";
 
 export const SearchBar = ({
   placeholder,
@@ -10,8 +9,8 @@ export const SearchBar = ({
   onChangeAction,
   onClickAction,
   value,
+  onKeyUpAction,
 }) => {
-  const handleClose = () => {};
   return (
     <>
       <div className="relative ">
@@ -21,6 +20,7 @@ export const SearchBar = ({
           placeholder={placeholder}
           autoFocus
           onChange={onChangeAction}
+          onKeyUp={onKeyUpAction}
           value={value}
         />
         <div>
