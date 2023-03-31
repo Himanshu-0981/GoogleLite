@@ -17,6 +17,7 @@ export const AppContext = ({ children }) => {
       .then((res) => {
         console.log(res);
         setLoading(false);
+        setData(res);
       })
       .catch((err) => {
         console.log(err);
@@ -40,10 +41,13 @@ export const AppContext = ({ children }) => {
   useEffect(() => {
     fetchRandomUser();
   }, []);
+
   return (
     <Context.Provider
       value={{
+        data,
         query,
+        loading,
         setQuery,
         randomUser,
       }}

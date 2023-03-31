@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const NavBarMenu = ({ title, icon, address, styleClass }) => {
+const NavBarMenu = ({ title, icon, icon2, address, styleClass }) => {
   return (
     <>
       <nav>
         <Link to={address} className={styleClass}>
-          {title} {icon}
+          {title} {icon} {icon2}
         </Link>
       </nav>
     </>

@@ -8,6 +8,7 @@ import { Button } from "../components/Button";
 import { Footer } from "../components/Footer";
 import { countryLanguages } from "../language/language";
 import { Context } from "../context/Context";
+import { Navbar } from "../components/Header";
 
 export default function Home() {
   const { query, setQuery } = useContext(Context);
@@ -23,16 +24,14 @@ export default function Home() {
   };
 
   const searchQueryHandler = (event) => {
-    if (
-      (event.key === "Enter" || event.key === "searchBtn") &&
-      query.length > 0
-    ) {
+    if ((event.key === "Enter" || event === "searchBtn") && query.length > 0) {
       navigate(`/result/${query}`);
     }
   };
 
   return (
     <>
+      <Navbar />
       <div className="flex flex-col justify-center items-center h-100vh">
         <Image
           image={googleLogo}
@@ -40,7 +39,7 @@ export default function Home() {
         />
         <SearchBar
           styleClass={
-            "rounded-full w-[37rem] pb-3 pt-3 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0"
+            "rounded-full w-[37rem] pb-2.5 pt-2.5 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0"
           }
           onChangeAction={() => handleSearchQuery(event)}
           value={query}
