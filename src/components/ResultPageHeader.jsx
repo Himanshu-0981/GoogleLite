@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { CgMenuGridO } from "react-icons/cg";
 import { FiSettings } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 import { Context } from "../context/Context";
 import HeaderMenu from "../components/HeaderMenu";
@@ -12,6 +13,7 @@ import googleLogoMini from "../assets/logo-google-mini.svg";
 
 const ResultPageHeader = () => {
   const { query, setQuery } = useContext(Context);
+  const navigate = useNavigate();
 
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -26,7 +28,16 @@ const ResultPageHeader = () => {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  // console.log(windowSize);
+  const handleSearchQuery = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const searchQueryHandler = (event) => {
+    if (event.key === "Enter" && query.length > 0) {
+      // navigate(`/result/${query}`);
+      navigate(`/result/all/${query}`);
+    }
+  };
 
   return (
     <div className="flex justify-between items-center pt-7 pr-10 pl-10">
@@ -40,7 +51,8 @@ const ResultPageHeader = () => {
 
           `}
           value={query}
-          onChangeAction={(event) => setQuery(event.target.value)}
+          onChangeAction={() => handleSearchQuery(event)}
+          onKeyUpAction={searchQueryHandler}
         />
       </div>
 

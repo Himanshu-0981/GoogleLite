@@ -1,15 +1,15 @@
 import axios from "axios";
 
-const BASE_URL = "https://g-search.p.rapidapi.co";
+const BASE_URL = "https://www.googleapis.com/customsearch/v1";
 
-const options = {
-  headers: {
-    "X-RapidAPI-Key": import.meta.env.VITE_APP_GOOGLE_SEARCH_API_KEY,
-    "X-RapidAPI-Host": "g-search.p.rapidapi.com",
-  },
+const params = {
+  key: "AIzaSyBWbAEdfB-odhAqktu75_vUFMCBpMMfIZM",
+  cx: "02b20be6092bd4b41",
 };
 
-export const fetchData = async (query) => {
-  const { data } = await axios.get(`${BASE_URL}/search?q=${query}`, options);
+export const fetchData = async (url) => {
+  const { data } = await axios.get(BASE_URL, {
+    params: { ...params, ...url },
+  });
   return await data;
 };

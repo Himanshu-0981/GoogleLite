@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Image } from "../components/Image";
@@ -11,22 +11,22 @@ import { Context } from "../context/Context";
 import { Header } from "../components/Header";
 
 export default function Home() {
-  const { query, setQuery } = useContext(Context);
+  const { query, setQuery, resultData } = useContext(Context);
   const [languages] = useState(countryLanguages);
   const navigate = useNavigate();
 
   const handleSearchQuery = (event) => {
     setQuery(event.target.value);
   };
-
   const handleCloseBtn = () => {
     setQuery("");
   };
 
   const searchQueryHandler = (event) => {
     if ((event.key === "Enter" || event === "searchBtn") && query.length > 0) {
-      // navigate(`/result/${query}`);
-      navigate(`/result/all/${query}`);
+      setTimeout(() => {
+        navigate(`/result/all/${query}`);
+      }, 2000);
     }
   };
 
