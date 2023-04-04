@@ -12,8 +12,7 @@ export const AppContext = ({ children }) => {
 
   const fetchResult = () => {
     setLoading(true);
-    let payload = { q: query };
-    fetchData(payload).then((res) => {
+    fetchData(query).then((res) => {
       setLoading(false);
       setResultData(res);
       console.log(res);
@@ -25,7 +24,7 @@ export const AppContext = ({ children }) => {
       if (query.length > 1) {
         fetchResult();
       }
-    }, 1000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [query]);
 

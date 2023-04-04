@@ -19,7 +19,7 @@ export const Navbar = () => {
     <div className="flex justify-between text-sm mt-5 text-[#474a4d] space-x-10 pr-20 pl-20 sm:pr-32 sm:pl-32 lg:pr-52 lg:pl-52">
       <div className="flex space-x-5">
         <NavbarItem
-          address={`/result/${query}`}
+          address={`/result/all/${query}`}
           icon={<IoMdSearch size={17} />}
           title={"All"}
           styleClass={navLinkStyles}

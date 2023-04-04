@@ -11,7 +11,7 @@ import { Context } from "../context/Context";
 import { Header } from "../components/Header";
 
 export default function Home() {
-  const { query, setQuery, resultData } = useContext(Context);
+  const { query, setQuery } = useContext(Context);
   const [languages] = useState(countryLanguages);
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function Home() {
     if ((event.key === "Enter" || event === "searchBtn") && query.length > 0) {
       setTimeout(() => {
         navigate(`/result/all/${query}`);
-      }, 2000);
+      }, 5000);
     }
   };
 
