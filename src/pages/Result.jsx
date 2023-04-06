@@ -47,7 +47,11 @@ const Result = () => {
         >
           <div className="flex">
             <div>
-              <img src={images[0]?.url} alt="pic" className="h-16 " />
+              <img
+                src={images.length === 0 ? notFound : images[0]?.url}
+                alt="pic"
+                className="h-16 "
+              />
             </div>
             <div className="ml-6">
               <p className="text-2xl">{knowledge_panel?.title}</p>
