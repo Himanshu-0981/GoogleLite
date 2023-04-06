@@ -35,19 +35,30 @@ const Result = () => {
         <hr className="mt-5" />
       </div>
       {/* ***** */}
-      <div className=" ml-52 pr-[30rem]  mt-3 text-[#202124]">
-        <div className="flex items-center">
-          <div>
-            <img src={images[0]?.url} alt="logo" className="h-16 " />
+      <div className=" text-sm sm:text-base sm:w-[40rem] 2xl:ml-52 xl:ml-52 lg:ml-52 md:ml-28 sm:ml-20 ml-5 mr-20 mt-5   text-[#202124] ">
+        <div
+          className={`"flex items-center" ${
+            (knowledge_panel?.title &&
+              knowledge_panel?.type &&
+              knowledge_panel?.description) === null
+              ? "hidden"
+              : "sm:block md:flex "
+          }`}
+        >
+          <div className="flex">
+            <div>
+              <img src={images[0]?.url} alt="pic" className="h-16 " />
+            </div>
+            <div className="ml-6">
+              <p className="text-2xl">{knowledge_panel?.title}</p>
+              <p className="text-base flex items-center mt-2">
+                {knowledge_panel?.type}{" "}
+                <IoMdMore className="ml-2 cursor-pointer" />
+              </p>
+            </div>
           </div>
-          <div className="ml-6">
-            <p className="text-3xl">{knowledge_panel?.title}</p>
-            <p className="text-base flex items-center mt-2">
-              {knowledge_panel?.type}{" "}
-              <IoMdMore className="ml-2 cursor-pointer" />
-            </p>
-          </div>
-          <div className="flex ml-10 space-x-3">
+          {/* btn div */}
+          <div className="flex ml-10 space-x-3 mt-5 md:mt-0">
             <Button
               title={"About"}
               styleClass={
@@ -71,7 +82,11 @@ const Result = () => {
 
         {/* Image */}
 
-        <div className="flex w-screen h-32 mt-10">
+        <div
+          className={`${
+            images?.length === 0 ? "hidden" : "flex mt-5 w-32 sm:w-40 md:w-52"
+          }`}
+        >
           <img
             src={images[1]?.url ? images[1]?.url : notFound}
             alt="logo"
@@ -120,7 +135,7 @@ const Result = () => {
                         .replace(".net", "")}
                     </p>
                     <Link to={url} target="_blank" className="text-xs">
-                      {url}
+                      {url.slice(0, 30)}
                     </Link>
                   </div>
                 </div>

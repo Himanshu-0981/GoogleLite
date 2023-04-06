@@ -16,7 +16,7 @@ export const Navbar = () => {
   // }
 
   return (
-    <div className="flex justify-between text-sm mt-5 text-[#474a4d] space-x-10 pr-20 pl-20 sm:pr-32 sm:pl-32 lg:pr-52 lg:pl-52">
+    <div className="flex justify-between text-sm mt-5 text-[#474a4d] space-x-10 lg:ml-52 md:ml-28 sm:ml-20 ml-5">
       <div className="flex space-x-5">
         <NavbarItem
           address={`/result/all/${query}`}
