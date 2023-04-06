@@ -34,20 +34,24 @@ const ResultPageHeader = () => {
 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
-      // navigate(`/result/${query}`);
       navigate(`/result/all/${query}`);
     }
   };
 
+  const goToHomePage = () => {
+    navigate(`/`);
+    setQuery("");
+  };
   return (
     <div className="flex justify-between items-center pt-7 sm:mr-10 sm:ml-10 sm:justify-center md:justify-between ">
       <div className="flex items-center sm:space-x-4 md:space-x-6 lg:space-x-16 ">
         <Image
           image={windowSize.innerWidth > 1024 ? googleLogo : googleLogoMini}
-          styleClass={`h-7 hidden sm:block `}
+          styleClass={`h-7 hidden sm:block cursor-pointer`}
+          onClickAction={goToHomePage}
         />
         <SearchBar
-          styleClass={`rounded-full pb-2.5 pt-2.5 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0 w-[20rem] sm:w-[40rem]  w-screen
+          styleClass={` rounded-full pb-2.5 pt-2.5 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0 w-[20rem] sm:w-[40rem]  w-screen 
 
           `}
           value={query}
@@ -77,11 +81,3 @@ const ResultPageHeader = () => {
 };
 
 export default ResultPageHeader;
-
-// ${
-// windowSize.innerWidth > 1053
-//   ? "w-[41rem] transition-all duration-150"
-//   : "w-[30rem] transition-all duration-150"
-//   ? "w-[20rem] transition all duration-150"
-//   : "w-10[rem] transition all duration-150"
-// }

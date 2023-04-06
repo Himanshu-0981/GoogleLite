@@ -1,5 +1,3 @@
-import React from "react";
-
-export const Image = ({ image, styleClass }) => {
-  return <img src={image} alt="image" className={styleClass} />;
-};
+export const Image = ({ image, styleClass, onClickAction }) => (
+  <img src={image} alt="image" className={styleClass} onClick={onClickAction} />
+);
