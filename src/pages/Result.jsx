@@ -8,6 +8,7 @@ import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import notFound from "../assets/notFound.webp";
+import { RelatedSearch } from "../components/RelatedSearch";
 
 const Result = () => {
   const { resultData, loading } = useContext(Context);
@@ -75,12 +76,6 @@ const Result = () => {
                 "pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-[#0060F0] border border-[#0060F0] text-sm"
               }
             />
-            <Button
-              title={"Videos"}
-              styleClass={
-                "pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-[#0060F0] border border-[#0060F0] text-sm"
-              }
-            />
           </div>
         </div>
 
@@ -111,6 +106,11 @@ const Result = () => {
             alt="logo"
             className="rounded-r-lg "
           />
+        </div>
+
+        {/* People searches */}
+        <div>
+          <RelatedSearch />
         </div>
 
         {/* ******** */}

@@ -24,9 +24,7 @@ export default function Home() {
 
   const searchQueryHandler = (event) => {
     if ((event.key === "Enter" || event === "searchBtn") && query.length > 0) {
-      setTimeout(() => {
-        navigate(`/result/all/${query}`);
-      }, 5000);
+      navigate(`/result/all/${query}`);
     }
   };
 
