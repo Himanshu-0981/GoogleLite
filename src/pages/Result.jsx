@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import notFound from "../assets/notFound.webp";
 import { RelatedSearch } from "../components/RelatedSearch";
+import { DidYouMeanPage } from "../components/DidYouMeanPage";
 
 const Result = () => {
   const { resultData, loading } = useContext(Context);
@@ -37,6 +38,9 @@ const Result = () => {
       </div>
       {/* ***** */}
       <div className=" text-sm sm:text-base sm:w-[40rem] 2xl:ml-52 xl:ml-52 lg:ml-52 md:ml-28 sm:ml-20 ml-5 mr-20 mt-5   text-[#202124] ">
+        <div>
+          <DidYouMeanPage />
+        </div>
         <div
           className={`"flex items-center" ${
             (knowledge_panel?.title &&
