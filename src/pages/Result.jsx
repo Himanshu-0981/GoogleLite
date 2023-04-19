@@ -12,7 +12,7 @@ import { RelatedSearch } from "../components/RelatedSearch";
 import { DidYouMeanPage } from "../components/DidYouMeanPage";
 
 const Result = () => {
-  const { resultData, loading } = useContext(Context);
+  const { resultData, resultImage, loading } = useContext(Context);
   const {
     dictionary,
     did_you_mean,
@@ -53,9 +53,11 @@ const Result = () => {
           <div className="flex">
             <div>
               <img
-                src={images.length === 0 ? notFound : images[0]?.url}
+                src={
+                  resultImage[0].url === null ? notFound : resultImage[0].url
+                }
                 alt="pic"
-                className="h-16 "
+                className="h-16 rounded"
               />
             </div>
             <div className="ml-6">
@@ -85,30 +87,17 @@ const Result = () => {
 
         {/* Image */}
 
-        <div
-          className={`${
-            images?.length === 0 ? "hidden" : "flex mt-5 w-32 sm:w-40 md:w-52"
-          }`}
-        >
+        <div className={`${"flex mt-5 w-32 sm:w-40 md:w-52 "}`}>
           <img
-            src={images[1]?.url ? images[1]?.url : notFound}
+            src={resultImage[1]?.url}
             alt="logo"
-            className="rounded-l-lg "
+            className="rounded-l-lg w-40"
           />
+          <img src={resultImage[2]?.url} alt="logo" className=" w-40" />
           <img
-            src={images[2]?.url ? images[2]?.url : notFound}
+            src={resultImage[3].url}
             alt="logo"
-            // className="h-16 "
-          />
-          {/* <img
-            src={images[3]?.url ? images[3]?.url : notFound}
-            alt="logo"
-            // className="h-16 "
-          /> */}
-          <img
-            src={images[4]?.url ? images[4]?.url : notFound}
-            alt="logo"
-            className="rounded-r-lg "
+            className="rounded-r-lg w-40 hidden sm:block"
           />
         </div>
 
