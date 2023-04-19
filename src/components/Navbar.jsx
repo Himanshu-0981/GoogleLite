@@ -25,7 +25,7 @@ export const Navbar = () => {
           styleClass={navLinkStyles}
         />
         <NavbarItem
-          address={`/result/${query}`}
+          address={`/result/image/${query}`}
           styleClass={"text-xm "}
           icon={<BiImage size={17} />}
           title={"Images"}

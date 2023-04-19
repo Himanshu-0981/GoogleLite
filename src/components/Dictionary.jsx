@@ -1,5 +1,11 @@
 import React from "react";
 
 export const Dictionary = () => {
-  return <div>Dictionary</div>;
+  return (
+    <div>
+      <h1>Dictionary</h1>
+      <p>Definitions from Oxford Languages · Learn more</p>
+      <audio src=""></audio>
+    </div>
+  );
 };

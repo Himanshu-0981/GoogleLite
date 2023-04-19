@@ -25,7 +25,7 @@ export const AppContext = ({ children }) => {
       if (query.length > 1) {
         fetchResult();
       }
-    }, 2000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [query]);
 
