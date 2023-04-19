@@ -33,7 +33,7 @@ export const AppContext = ({ children }) => {
     setLoading(true);
     fetchImage(query).then((res) => {
       setLoading(false);
-      console.log(res[0]);
+      console.log(res);
       setResultImage(res);
     });
   };

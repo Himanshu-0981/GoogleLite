@@ -91,13 +91,13 @@ const Result = () => {
           <img
             src={resultImage[1]?.url}
             alt="logo"
-            className="rounded-l-lg w-40"
+            className="rounded-l-lg w-40 h-32"
           />
-          <img src={resultImage[2]?.url} alt="logo" className=" w-40" />
+          <img src={resultImage[2]?.url} alt="logo" className=" w-40 h-32" />
           <img
             src={resultImage[3].url}
             alt="logo"
-            className="rounded-r-lg w-40 hidden sm:block"
+            className="rounded-r-lg w-40 h-32 hidden sm:block"
           />
         </div>
 
