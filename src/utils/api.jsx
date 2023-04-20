@@ -5,8 +5,7 @@ const FETCH_DATA_BASE_URL = "https://google-search83.p.rapidapi.com/google";
 
 const options = {
   headers: {
-    "X-RapidAPI-Key": "af2c7c631cmsh45754f6e80f5b57p155206jsn677410b5b868",
-    "X-RapidAPI-Host": "google-search83.p.rapidapi.com",
+    "X-RapidAPI-Key": "665274a7dfmsh1109dbea5759a8ep11be6cjsn0f409d12ad71",
   },
 };
 

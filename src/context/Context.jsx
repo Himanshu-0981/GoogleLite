@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext, useMemo } from "react";
-import axios from "axios";
 
 import { fetchData, fetchImage } from "../utils/api";
 
@@ -9,15 +8,19 @@ export const AppContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState([]);
   const [resultImage, setResultImage] = useState([]);
+  const [apiCalled, setApiCalled] = useState(false);
   const [query, setQuery] = useState("");
 
   const fetchResult = () => {
     setLoading(true);
-    fetchData(query).then((res) => {
-      setLoading(false);
-      setResultData(res);
-      console.log(res);
-    });
+    fetchData(query)
+      .then((res) => {
+        setResultData(res);
+        setApiCalled(true); // set the flag to true
+        console.log(res);
+        setLoading(false);
+      })
+      .catch((err) => console.log("Error Message", err));
   };
 
   useEffect(() => {
@@ -31,11 +34,14 @@ export const AppContext = ({ children }) => {
 
   const fetchImageResult = () => {
     setLoading(true);
-    fetchImage(query).then((res) => {
-      setLoading(false);
-      console.log(res);
-      setResultImage(res);
-    });
+    fetchImage(query)
+      .then((res) => {
+        console.log(res);
+        setResultImage(res);
+        setApiCalled(true); // set the flag to true
+        setLoading(false);
+      })
+      .catch((err) => console.log("Error", err));
   };
 
   useEffect(() => {
@@ -51,9 +57,12 @@ export const AppContext = ({ children }) => {
       value={{
         query,
         loading,
+        setLoading,
         setQuery,
         resultData,
         resultImage,
+        fetchResult,
+        apiCalled,
       }}
     >
       {children}

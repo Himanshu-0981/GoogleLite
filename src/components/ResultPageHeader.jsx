@@ -12,7 +12,7 @@ import { Button } from "../components/Button";
 import googleLogoMini from "../assets/logo-google-mini.svg";
 
 const ResultPageHeader = () => {
-  const { query, setQuery } = useContext(Context);
+  const { query, setQuery, loading, setLoading } = useContext(Context);
   const navigate = useNavigate();
 
   const getWindowSize = () => {
