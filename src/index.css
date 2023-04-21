@@ -12,3 +12,16 @@
 html {
   overflow-x: hidden;
 }
+
+.error-msg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11rem;
+  font-size: 2rem;
+  transition: all 1s linear;
+}
+
+.error-msg {
+  color: #5a5959;
+}

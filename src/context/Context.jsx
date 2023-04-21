@@ -10,17 +10,21 @@ export const AppContext = ({ children }) => {
   const [resultImage, setResultImage] = useState([]);
   const [apiCalled, setApiCalled] = useState(false);
   const [query, setQuery] = useState("");
+  const [error, setError] = useState(false);
+
+  // console.log("context", error);
 
   const fetchResult = () => {
     setLoading(true);
     fetchData(query)
       .then((res) => {
         setResultData(res);
-        setApiCalled(true); // set the flag to true
+        setApiCalled(true);
         console.log(res);
         setLoading(false);
+        setError(false);
       })
-      .catch((err) => console.log("Error Message", err));
+      .catch((err) => setError(err));
   };
 
   useEffect(() => {
@@ -38,7 +42,7 @@ export const AppContext = ({ children }) => {
       .then((res) => {
         console.log(res);
         setResultImage(res);
-        setApiCalled(true); // set the flag to true
+        setApiCalled(true);
         setLoading(false);
       })
       .catch((err) => console.log("Error", err));
@@ -63,6 +67,7 @@ export const AppContext = ({ children }) => {
         resultImage,
         fetchResult,
         apiCalled,
+        error,
       }}
     >
       {children}
