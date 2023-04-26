@@ -20,7 +20,3 @@ export const DidYouMeanPage = () => {
     </div>
   );
 };
-/**
- *
- *
- */

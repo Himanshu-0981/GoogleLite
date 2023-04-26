@@ -12,8 +12,6 @@ export const AppContext = ({ children }) => {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(false);
 
-  // console.log("context", error);
-
   const fetchResult = () => {
     setLoading(true);
     fetchData(query)

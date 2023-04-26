@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Button = ({ title, styleClass, onClickAction, onKeyUpAction }) => {
   return (
     <div>

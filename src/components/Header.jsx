@@ -1,9 +1,6 @@
 import React from "react";
 import { CgMenuGridO } from "react-icons/cg";
-import { BsFillPersonFill } from "react-icons/bs";
-import { useContext } from "react";
 
-import { Image } from "./Image";
 import { Button } from "./Button";
 import { HeaderText } from "./HeaderText";
 import HeaderMenu from "./HeaderMenu";

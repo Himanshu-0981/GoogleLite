@@ -1,19 +1,14 @@
-import { NavbarItem } from "./NavbarItem";
 import { IoMdSearch, IoMdMore } from "react-icons/io";
 import { BiImage, BiNews, BiMap } from "react-icons/bi";
 import { RiVideoLine } from "react-icons/ri";
 import { navLinkStyles } from "./NavLinkStyles";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 
+import { NavbarItem } from "./NavbarItem";
 import { Context } from "../context/Context";
 
 export const Navbar = () => {
   const { query } = useContext(Context);
-
-  // const navigate = () => {
-
-  // }
 
   return (
     <div className="flex justify-between text-sm mt-5 text-[#474a4d] space-x-10 lg:ml-52 md:ml-28 sm:ml-20 ml-5">

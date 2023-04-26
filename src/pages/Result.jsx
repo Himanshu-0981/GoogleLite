@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { BsFillPersonFill } from "react-icons/bs";
+import { useContext } from "react";
 import { IoMdMore } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 import { Navbar } from "../components/Navbar";
 import ResultPageHeader from "../components/ResultPageHeader";
 import { Context } from "../context/Context";
-import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import notFound from "../assets/notFound.webp";
 import { RelatedSearch } from "../components/RelatedSearch";
@@ -13,24 +12,11 @@ import { DidYouMeanPage } from "../components/DidYouMeanPage";
 import { ErrorMessage } from "../../error/ErrorMessage";
 
 const Result = () => {
-  const { resultData, resultImage, loading, apiCalled, error } =
-    useContext(Context);
-  const {
-    dictionary,
-    did_you_mean,
-    featured_snippet,
-    // knowledge_panel,
-    location,
-    people_also_ask,
-    people_also_search,
-    results,
-    time,
-  } = resultData || {};
+  const { resultData, resultImage, apiCalled, error } = useContext(Context);
+  const { knowledge_panel, results } = resultData || {};
 
-  // const { metadata, type, url, images } = knowledge_panel;
-
-  const regex = /(<([^>]+)>)/gi;
   const urlRegex = /(^\w+:|^)\/\//;
+
   return (
     <>
       <div>
@@ -47,17 +33,16 @@ const Result = () => {
             <div className=" text-sm sm:text-base sm:w-[40rem] 2xl:ml-52 xl:ml-52 lg:ml-52 md:ml-28 sm:ml-20 ml-5 mr-20 mt-5   text-[#202124] ">
               <div>
                 <DidYouMeanPage />
-                {/* </div>
-          <div
-            className={`"flex items-center" ${
-              
-              (knowledge_panel?.title &&
-                knowledge_panel?.type &&
-                knowledge_panel?.description) === null
-                ? "hidden"
-                : "sm:block md:flex "
-            }`}
-          > */}
+              </div>
+              <div
+                className={`"flex items-center" ${
+                  (knowledge_panel?.title &&
+                    knowledge_panel?.type &&
+                    knowledge_panel?.description) === null
+                    ? "hidden"
+                    : "sm:block md:flex "
+                }`}
+              >
                 <div className="flex">
                   <div>
                     <img
@@ -71,14 +56,14 @@ const Result = () => {
                     />
                   </div>
                   <div className="ml-6">
-                    {/* {knowledge_panel && (
-                  <div className="text-2xl">{knowledge_panel.title}</div>
-                )} */}
+                    {knowledge_panel && (
+                      <div className="text-2xl">{knowledge_panel.title}</div>
+                    )}
 
-                    {/* <p className="text-base flex items-center mt-2">
-                  {knowledge_panel?.type}{" "}
-                  <IoMdMore className="ml-2 cursor-pointer" />
-                </p> */}
+                    <p className="text-base flex items-center mt-2">
+                      {knowledge_panel?.type}{" "}
+                      <IoMdMore className="ml-2 cursor-pointer" />
+                    </p>
                   </div>
                 </div>
                 {/* btn div */}

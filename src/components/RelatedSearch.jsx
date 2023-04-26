@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
 
 export const RelatedSearch = () => {
-  const { resultData, query } = useContext(Context);
+  const { resultData } = useContext(Context);
   const { people_also_search } = resultData;
   return (
     <React.Fragment>
