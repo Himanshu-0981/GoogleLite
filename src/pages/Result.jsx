@@ -10,6 +10,8 @@ import notFound from "../assets/notFound.webp";
 import { RelatedSearch } from "../components/RelatedSearch";
 import { DidYouMeanPage } from "../components/DidYouMeanPage";
 import { ErrorMessage } from "../../error/ErrorMessage";
+import { Footer } from "../components/Footer";
+import Loader from "../shared/Loader";
 
 const Result = () => {
   const { resultData, resultImage, apiCalled, error } = useContext(Context);
@@ -152,7 +154,7 @@ const Result = () => {
               })}
             </div>
           ) : (
-            <div>Loading.....</div>
+            <Loader />
           )}
         </div>
       )}
