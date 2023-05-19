@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IoMdMore } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -12,12 +12,25 @@ import { DidYouMeanPage } from "../components/DidYouMeanPage";
 import { ErrorMessage } from "../../error/ErrorMessage";
 import { Footer } from "../components/Footer";
 import Loader from "../shared/Loader";
+import { About } from "../components/About";
 
 const Result = () => {
+  const [showAbout, setShowAbout] = useState(false);
+  const [showImage, setShowImage] = useState(false);
   const { resultData, resultImage, apiCalled, error } = useContext(Context);
   const { knowledge_panel, results } = resultData || {};
 
   const urlRegex = /(^\w+:|^)\/\//;
+
+  const handleShowAbout = () => {
+    setShowAbout(true);
+    setShowImage(false);
+  };
+
+  const handleShowImage = () => {
+    setShowImage(true);
+    setShowAbout(false);
+  };
 
   return (
     <>
@@ -72,12 +85,14 @@ const Result = () => {
                 <div className="flex ml-10 space-x-3 mt-5 md:mt-0">
                   <Button
                     title={"About"}
+                    onClickAction={handleShowAbout}
                     styleClass={
                       "pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-[#0060F0] border border-[#0060F0] text-sm "
                     }
                   />
                   <Button
                     title={"Images"}
+                    onClickAction={handleShowImage}
                     styleClass={
                       "pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-[#0060F0] border border-[#0060F0] text-sm"
                     }
@@ -88,21 +103,27 @@ const Result = () => {
               {/* Image */}
 
               <div className={`${"flex mt-5 w-32 sm:w-40 md:w-52 "}`}>
-                <img
-                  src={resultImage[1]?.url}
-                  alt="logo"
-                  className="rounded-l-lg w-40 h-32"
-                />
-                <img
-                  src={resultImage[2]?.url}
-                  alt="logo"
-                  className=" w-40 h-32"
-                />
-                <img
-                  src={resultImage[3].url}
-                  alt="logo"
-                  className="rounded-r-lg w-40 h-32 hidden sm:block"
-                />
+                {showAbout ? (
+                  <About knowledgePanel={knowledge_panel} />
+                ) : (
+                  <>
+                    <img
+                      src={resultImage[1]?.url}
+                      alt="logo"
+                      className="rounded-l-lg w-40 h-32"
+                    />
+                    <img
+                      src={resultImage[2]?.url}
+                      alt="logo"
+                      className=" w-40 h-32"
+                    />
+                    <img
+                      src={resultImage[3].url}
+                      alt="logo"
+                      className="rounded-r-lg w-40 h-32 hidden sm:block"
+                    />
+                  </>
+                )}
               </div>
 
               {/* People searches */}

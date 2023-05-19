@@ -9,7 +9,7 @@ export const RelatedSearch = () => {
   return (
     <React.Fragment>
       {people_also_search?.length === 0 ? (
-        <h1>Hello world</h1>
+        <></>
       ) : (
         <>
           <h1 className="text-slate-700 text-xl mt-5 mb-3">

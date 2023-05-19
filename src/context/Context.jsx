@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useMemo } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 import { fetchData, fetchImage } from "../utils/api";
 
