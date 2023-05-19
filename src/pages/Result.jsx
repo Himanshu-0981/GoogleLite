@@ -16,7 +16,7 @@ import { About } from "../components/About";
 
 const Result = () => {
   const [showAbout, setShowAbout] = useState(false);
-  const [showImage, setShowImage] = useState(false);
+  const [showImage, setShowImage] = useState(true);
   const { resultData, resultImage, apiCalled, error } = useContext(Context);
   const { knowledge_panel, results } = resultData || {};
 
@@ -62,9 +62,9 @@ const Result = () => {
                   <div>
                     <img
                       src={
-                        resultImage[0].url === null
+                        resultImage[0]?.url === null
                           ? notFound
-                          : resultImage[0].url
+                          : resultImage[0]?.url
                       }
                       alt="pic"
                       className="h-16 rounded"
@@ -86,16 +86,20 @@ const Result = () => {
                   <Button
                     title={"About"}
                     onClickAction={handleShowAbout}
-                    styleClass={
-                      "pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-[#0060F0] border border-[#0060F0] text-sm "
-                    }
+                    styleClass={`pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-sm ${
+                      showAbout
+                        ? "  border border-[#0060F0]"
+                        : " rounded-full text-[#0060F0]"
+                    } `}
                   />
                   <Button
                     title={"Images"}
                     onClickAction={handleShowImage}
-                    styleClass={
-                      "pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-[#0060F0] border border-[#0060F0] text-sm"
-                    }
+                    styleClass={`pt-2 pb-2 pr-4 pl-4 bg-[#E2EEFF] rounded-full text-sm ${
+                      showImage
+                        ? " border border-[#0060F0]"
+                        : "rounded-full text-[#0060F0]  "
+                    }`}
                   />
                 </div>
               </div>
@@ -118,7 +122,7 @@ const Result = () => {
                       className=" w-40 h-32"
                     />
                     <img
-                      src={resultImage[3].url}
+                      src={resultImage[3]?.url}
                       alt="logo"
                       className="rounded-r-lg w-40 h-32 hidden sm:block"
                     />
@@ -148,16 +152,16 @@ const Result = () => {
                         <div className="ml-3">
                           <p className="text-sm">
                             {url
-                              .replace(urlRegex, "")
-                              .split("/")[0]
-                              .replace("www.", "")
-                              .replace("en.m.", "")
-                              .replace(".com", "")
-                              .replace(".org", "")
-                              .replace(".net", "")}
+                              ?.replace(urlRegex, "")
+                              ?.split("/")[0]
+                              ?.replace("www.", "")
+                              ?.replace("en.m.", "")
+                              ?.replace(".com", "")
+                              ?.replace(".org", "")
+                              ?.replace(".net", "")}
                           </p>
                           <Link to={url} target="_blank" className="text-xs">
-                            {url.slice(0, 30)}
+                            {url?.slice(0, 30)}
                           </Link>
                         </div>
                       </div>
@@ -184,4 +188,3 @@ const Result = () => {
 };
 
 export default Result;
-//
