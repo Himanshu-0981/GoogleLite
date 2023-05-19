@@ -82,7 +82,7 @@ const Result = () => {
                   </div>
                 </div>
                 {/* btn div */}
-                <div className="flex ml-10 space-x-3 mt-5 md:mt-0">
+                <div className="flex ml-0 md:ml-10 space-x-3 mt-5 md:mt-0">
                   <Button
                     title={"About"}
                     onClickAction={handleShowAbout}
