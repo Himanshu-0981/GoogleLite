@@ -10,7 +10,6 @@ import notFound from "../assets/notFound.webp";
 import { RelatedSearch } from "../components/RelatedSearch";
 import { DidYouMeanPage } from "../components/DidYouMeanPage";
 import { ErrorMessage } from "../../error/ErrorMessage";
-import { Footer } from "../components/Footer";
 import Loader from "../shared/Loader";
 import { About } from "../components/About";
 
