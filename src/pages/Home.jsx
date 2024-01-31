@@ -34,11 +34,11 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center h-100vh">
         <Image
           image={googleLogo}
-          styleClass={"h-[90px] mt-3 text-center mb-6"}
+          styleClass={" h-[4rem] md:h-[6rem] mt-12 sm:mt-3 text-center mb-6"}
         />
         <SearchBar
           styleClass={
-            "rounded-full w-[37rem] pb-2.5 pt-2.5 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0"
+            "rounded-full  sm:w-[30rem] md:w-[37rem] pb-2.5 pt-2.5 pl-10 pr-10 border focus:outline-none  focus-within:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus-within:border-0"
           }
           onChangeAction={() => handleSearchQuery(event)}
           value={query}
@@ -61,11 +61,15 @@ export default function Home() {
             }
           />
         </div>
-        <div className="flex items-center text-[#1a0dab]  space-x-2  text-xs mt-8">
+        <div className="flex items-center flex-col sm:flex-row justify-center gap-3 px-3 w-full text-[#1a0dab]  space-x-2  text-xs mt-8 ">
           <p className="text-black text-[13px] ">Google offered in :</p>
-          {languages.map((language, index) => (
-            <Link key={index}>{language}</Link>
-          ))}
+          <div className="overflow-x-auto flex gap-4">
+            {languages.map((language, index) => (
+              <Link key={index} className="underline    ">
+                {language}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
       <footer className=" fixed bottom-0">
